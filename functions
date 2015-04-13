@@ -43,10 +43,10 @@ alias gt="bm -g"
 
 # Check port
 function iport() {
-	netstat -tulpn | grep :$1
+	lsof -n -i4TCP:$1 | grep LISTEN
 }
 
 # Check process to ports
 function pport() {
-	netstat -tulpn | grep $1
+	lsof -n -i4TCP | grep $1
 }
